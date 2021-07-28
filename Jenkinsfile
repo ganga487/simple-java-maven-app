@@ -2,9 +2,9 @@ pipeline {
     agent {
         label 'agent1'
     }
-    //tools {
-      //  maven 'mvn-3.8.1'
-    //}
+    tools {
+        maven 'mvn-3.6.3'
+    }
     stages {
       stage('Checkout') {
         steps {
