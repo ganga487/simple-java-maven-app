@@ -23,7 +23,7 @@ pipeline {
               myVar="T.Gangireddy"
           }
           steps {
-             sh 'echo "====My Name is :$myVar++++===="'
+             sh 'echo "====My Name is :$myVar and Ganga++++===="'
           }
       }
 
