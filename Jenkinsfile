@@ -7,10 +7,10 @@ pipeline {
         maven 'maven3.6.3'
     }
 
-   options {
-        timeout(10)
-        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')
-   }
+    options {
+         timeout(10)
+         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')
+    }
 
     stages {
         stage('Checkout') {
@@ -59,6 +59,23 @@ pipeline {
                     }
                 }
             }
+        }
+
+        stage('Deploy to UAT') {
+            
+                input {
+                    message 'Do You want to Deploy in UAT ?'
+                }
+                environment {
+                    targer_user=""
+                    targer_server=""
+                }
+                steps {
+                    echo "Awaiting"
+                }
+
+            }
+            
         }
     }
 
