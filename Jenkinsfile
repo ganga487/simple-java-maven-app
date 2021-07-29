@@ -61,19 +61,9 @@ pipeline {
             }
         }
 
-        stage('Deploy to UAT') {
+        
             
-                input {
-                    message 'Do You want to Deploy in UAT ?'
-                }
-                
-                steps {
-                    echo "Awaiting"
-                }
-
-            }
-            
-        }
+        
     }
 
     post {
