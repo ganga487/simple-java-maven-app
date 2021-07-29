@@ -4,8 +4,15 @@ pipeline {
     }
 
     tools {
-        maven 'maven3.8.1'
+        maven 'maven3.6.3'
     }
+
+    options {
+               timeout(10)
+               timestamps
+               buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')
+      }
+
 
     stages {
         stage('Checkout') {
@@ -36,5 +43,18 @@ pipeline {
             }
         }
 
+    }
+    post {
+        always {
+            deleDir()
+        }
+
+        failure {
+            echo "Sendmail -s Maven job failed receipt@mycompany.com"
+        }
+
+        success {
+            echo "The job is successfully"
+        }
     }
 }
