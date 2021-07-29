@@ -23,7 +23,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "mvn --version"
-                sh "mvn clean package"
+                sh "mvn clean install"
             }
         }
 
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Print Env') {
             environment {
-                myVar="GANGIREDDy"
+                myVar="GANGIREDDY"
             }
             steps {
                sh  'echo "MY NAME IS :$myVar"'
