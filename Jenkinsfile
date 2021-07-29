@@ -7,9 +7,10 @@ pipeline {
         maven 'maven3.6.3'
     }
 
-    options {
-
-    }
+   options {
+        timeout(10)
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')
+   }
 
     stages {
         stage('Checkout') {
