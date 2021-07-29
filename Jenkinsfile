@@ -41,7 +41,7 @@ pipeline {
                     }
                     steps {
                         sshagent(['cd-ssh-key']) {
-                            sh "scp -o StrictHostKeyChecking=no target/my-app-1.0-SNAPSHOT.jar $target_user@$target_server:/home/ec2-user"
+                            sh 'scp -o StrictHostKeyChecking=no target/my-app-1.0-SNAPSHOT.jar $target_user@$target_server:/home/ec2-user'
                         }
 
                     }
@@ -54,7 +54,7 @@ pipeline {
                     }
                     steps {
                         sshagent(['cd-ssh-key']) {
-                            sh "scp -o StrictHostKeyChecking=no target/my-app-1.0-SNAPSHOT.jar $target_user@$target_server:/home/ec2-user"
+                            sh 'scp -o StrictHostKeyChecking=no target/my-app-1.0-SNAPSHOT.jar $target_user@$target_server:/home/ec2-user'
                         }
                     }
                 }
