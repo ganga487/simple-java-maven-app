@@ -46,7 +46,7 @@ pipeline {
             steps {
                 sshagent(['cd-ssh-key']) {
                      // some block
-                      sh "scp -o StrictHostKeyChecking=no ec2-user@172.31.0.111:/home/ec2-user/sa.txt  ec2-user@172.31.95.224:/home/ec2-user/"
+                      sh "scp -o StrictHostKeyChecking=no sa.txt  ec2-user@172.31.95.224:/home/ec2-user/"
                 }
             }
         }
