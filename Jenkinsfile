@@ -67,8 +67,8 @@ pipeline {
                     message 'Do You want to Deploy in UAT ?'
                 }
                 environment {
-                    targer_user=""
-                    targer_server=""
+                    targer_user="hcdh"
+                    targer_server="cjcjcj"
                 }
                 steps {
                     echo "Awaiting"
