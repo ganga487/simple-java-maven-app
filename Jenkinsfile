@@ -9,7 +9,6 @@ pipeline {
 
     options {
                timeout(10)
-               
                buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')
       }
 
@@ -40,6 +39,12 @@ pipeline {
             }
             steps {
                sh  'echo "MY NAME IS :$myVar"'
+            }
+        }
+
+        stage('Deployment') {
+            steps {
+                sh "scp -o StrictHostKeyChecking=no sa.txt ec2-user@172.31.95.224:/home/ec2-user/"
             }
         }
 
