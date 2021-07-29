@@ -44,7 +44,10 @@ pipeline {
 
         stage('Deployment') {
             steps {
-                sh "scp -o StrictHostKeyChecking=no sa.txt ec2-user@172.31.95.224:/home/ec2-user/"
+                sshagent(['cd-ssh-key']) {
+                     // some block
+                      sh "scp -o StrictHostKeyChecking=no sa.txt ec2-user@172.31.95.224:/home/ec2-user/"
+                }
             }
         }
 
