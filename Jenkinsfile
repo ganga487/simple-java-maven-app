@@ -61,9 +61,22 @@ pipeline {
             }
         }
 
-        
+        stage('Deploy to UAT') {
             
-        
+                input {
+                    message 'Do You want to Deploy in UAT ?'
+                }
+                
+                environment {
+                    targer_user=""
+                    target_server=""
+                }
+                steps {
+                    echo "Awaiting"
+                }
+
+            
+        }
     }
 
     post {
